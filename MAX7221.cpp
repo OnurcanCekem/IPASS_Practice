@@ -67,7 +67,7 @@ void MAX7221::Translate( const char Text[], uint8_t Storage[][8] ){
     int ASCII;
     int ASCII_Offset = 0;
     
-    for( int i = 0;; i++ ){
+    for( unsigned int i = 0;; i++ ){
         
         // To check if the string is empty.
         if( Text[i] == 0 ){
@@ -121,7 +121,7 @@ void MAX7221::Translate( const char Text[], uint8_t Storage[][8] ){
 void MAX7221::ShiftLeft( uint8_t Data[][8], const int Size){
         
     for( int i = 0; i < Size; i++ ){
-        for( int j = 0; j < 8; j++ ){
+        for( unsigned int j = 0; j < 8; j++ ){
             
             // To check if we're in the furthest left matrix.
             if( i != 0 ){
@@ -142,7 +142,7 @@ void MAX7221::ShiftLeft( uint8_t Data[][8], const int Size){
 void MAX7221::ShiftLeftCircular( uint8_t Data[][8], const int Size){
     
     for( int i = 0; i < Size; i++ ){
-        for( int j = 0; j < 8; j++ ){
+        for( unsigned int j = 0; j < 8; j++ ){
             
             // To check if we're in the furthest left matrix.
             if( i != 0 ){
@@ -169,7 +169,7 @@ void MAX7221::ShiftLeftCircular( uint8_t Data[][8], const int Size){
 void MAX7221::ShiftRight( uint8_t Data[][8], const int Size ){
 
     for(int i = Size-1; i >= 0; i-- ){
-        for( int j = 0; j < 8; j++ ){
+        for( unsigned int j = 0; j < 8; j++ ){
             
             // To check if we're in the furthest right matrix.
             if(i != Size-1){
@@ -190,7 +190,7 @@ void MAX7221::ShiftRight( uint8_t Data[][8], const int Size ){
 void MAX7221::ShiftRightCircular( uint8_t Data[][8], const int Size ){
 
     for(int i = Size-1; i >= 0; i-- ){
-        for( int j = 0; j < 8; j++ ){
+        for( unsigned int j = 0; j < 8; j++ ){
             
             // To check if we're in the furthest right matrix.
             if(i != Size-1){
@@ -220,7 +220,7 @@ void MAX7221::WriteAll( const uint8_t Data[][8] ){
     // Create the array.
     uint8_t Writable[8][Array_Size];
     
-    for( int i = 0; i < 8; i++ ){
+    for( unsigned int i = 0; i < 8; i++ ){
         for( int j = 0; j < Number_Of_Matrixes; j++ ){
             
             // Put the data from Data to the correct index in Writable 
@@ -256,7 +256,7 @@ void MAX7221::WriteSingle( const uint8_t Data[], const int Selected_Matrix){
         }
         
         // Loop in Columns
-        for( int i = 0; i < 8; i++ ){
+        for( unsigned int i = 0; i < 8; i++ ){
             
             // Put the data from Data in the correct indexes in Writable.
             Writable[Array_Size - Selected_Matrix * 2] = i+1;
