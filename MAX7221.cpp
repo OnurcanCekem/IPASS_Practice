@@ -42,7 +42,7 @@ void MAX7221::Setup(){
 }
 
 // This function sets the intensity of every matrix.
-void MAX7221::SetIntensity( uint8_t IntensityValue ){
+void MAX7221::SetIntensity( const uint8_t IntensityValue ){
     
     // Create the array.
     uint8_t IntensityData[Array_Size];
@@ -118,7 +118,7 @@ void MAX7221::Translate( const char Text[], uint8_t Storage[][8] ){
 }
 
 // This function shifts data to the left.
-void MAX7221::ShiftLeft( uint8_t Data[][8], int Size){
+void MAX7221::ShiftLeft( uint8_t Data[][8], const int Size){
         
     for( int i = 0; i < Size; i++ ){
         for( int j = 0; j < 8; j++ ){
@@ -139,7 +139,7 @@ void MAX7221::ShiftLeft( uint8_t Data[][8], int Size){
 }
 
 // This function shifts data to the left, but also keeps the shifted data.
-void MAX7221::ShiftLeftCircular( uint8_t Data[][8], int Size){
+void MAX7221::ShiftLeftCircular( uint8_t Data[][8], const int Size){
     
     for( int i = 0; i < Size; i++ ){
         for( int j = 0; j < 8; j++ ){
@@ -166,7 +166,7 @@ void MAX7221::ShiftLeftCircular( uint8_t Data[][8], int Size){
 }
 
 // This function shifts data to the right.
-void MAX7221::ShiftRight( uint8_t Data[][8], int Size ){
+void MAX7221::ShiftRight( uint8_t Data[][8], const int Size ){
 
     for(int i = Size-1; i >= 0; i-- ){
         for( int j = 0; j < 8; j++ ){
@@ -187,7 +187,7 @@ void MAX7221::ShiftRight( uint8_t Data[][8], int Size ){
 }
 
 // This function shifts data to the right, but also keeps the shifted data.
-void MAX7221::ShiftRightCircular( uint8_t Data[][8], int Size ){
+void MAX7221::ShiftRightCircular( uint8_t Data[][8], const int Size ){
 
     for(int i = Size-1; i >= 0; i-- ){
         for( int j = 0; j < 8; j++ ){
@@ -238,7 +238,7 @@ void MAX7221::WriteAll( const uint8_t Data[][8] ){
 
 // This function writes data to a single matrix.
 // Selected Matrix has to be 1 to select the first matrix.
-void MAX7221::WriteSingle( const uint8_t Data[], int Selected_Matrix){
+void MAX7221::WriteSingle( const uint8_t Data[], const int Selected_Matrix){
     
     // Check to see if Selected_Matrix is within range, 1 up until Number_Of_Matrixes.
     if(!(Selected_Matrix > Number_Of_Matrixes || Selected_Matrix < 1)){

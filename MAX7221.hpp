@@ -104,7 +104,7 @@ public:
     /// \details
     /// Referenced Chip Select, referenced SPI Bus and a number to identicate how many matrixes the programmer is using with default which is set to 1.
 
-    MAX7221(hwlib::pin_out & Chip_Select, hwlib::spi_bus_bit_banged_sclk_mosi_miso & SPI_Bus, int Number_Of_Matrixes = 1):
+    MAX7221(hwlib::pin_out & Chip_Select, hwlib::spi_bus_bit_banged_sclk_mosi_miso & SPI_Bus, const int Number_Of_Matrixes = 1):
     Chip_Select(Chip_Select),
     SPI_Bus(SPI_Bus),
     Number_Of_Matrixes(Number_Of_Matrixes)
@@ -124,7 +124,7 @@ public:
     /// Sets the intensity for the MAX7221 chip.
     /// \details
     /// This function requires a value, this value is used to set the intensity of all the matrixes by writing to the intensity register with given value.
-    void SetIntensity( uint8_t IntensityValue );
+    void SetIntensity( const uint8_t IntensityValue );
     
     /// \brief
     /// Convert char strings to uint8_t.
@@ -138,7 +138,7 @@ public:
     /// \details
     /// This function requires the data that you want to shift to the left and the size of the first dimension of the data. This function Shifts all the data one step
     /// to the left and hands it over to the next matrix if another matrix is connected to it's left.
-    void ShiftLeft( uint8_t Data[][8], int Size );
+    void ShiftLeft( uint8_t Data[][8], const int Size );
     
     /// \brief
     /// Shifts the given data to the left, but in a circular array.
@@ -146,14 +146,14 @@ public:
     /// This function requires the data that you want to shift to the left and the size of the first dimension of the data. This function Shifts all the data one step
     /// to the left and hands it over to the next matrix if another matrix is connected to it's left. The data on the furthest left is put on the data furthest right to make it a
     /// circular array.
-    void ShiftLeftCircular( uint8_t Data[][8], int Size);
+    void ShiftLeftCircular( uint8_t Data[][8], const int Size);
     
     /// \brief
     /// Shifts the given data to the right.
     /// \details
     /// This function requires the data that you want to shift to the right and the size of the first dimension of the data. This function shifts all the data one step
     /// to the right and hands it over to the next matrix if another matrix is connected to it's right.
-    void ShiftRight( uint8_t Data[][8], int Size );
+    void ShiftRight( uint8_t Data[][8], const int Size );
     
     /// \brief
     /// Shifts the given data to the right, but in a circular array.
@@ -161,7 +161,7 @@ public:
     /// This function requires the data that you want to shift to the right and the size of the first dimension of the data. This function shifts all the data one step
     /// to the right and hands it over to the next matrix if another matrix is connected to it's right. The data on the furthest right is put on the data furthest left to make it a
     /// circular array.
-    void ShiftRightCircular( uint8_t Data[][8], int Size);
+    void ShiftRightCircular( uint8_t Data[][8], const int Size);
     
     
     /// \brief
@@ -175,7 +175,7 @@ public:
     /// \details
     /// This function is similar to the WriteAll function except the only difference is that you can select one single matrix to write to.
     /// This function requires data for a single matrix and a number to select which matrix to select from (the range is 1-Number_Of_Matrixes).
-    void WriteSingle( const uint8_t Data[], int Selected_Matrix ); 
+    void WriteSingle( const uint8_t Data[], const int Selected_Matrix ); 
 
     /// \brief
     /// Clears the MAX7221 chip.
