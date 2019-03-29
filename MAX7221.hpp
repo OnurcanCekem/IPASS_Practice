@@ -18,8 +18,8 @@ private:
     hwlib::pin_out & Chip_Select; // Chip Select.
     hwlib::spi_bus_bit_banged_sclk_mosi_miso & SPI_Bus; // SPI_Bus
     
-    int Number_Of_Matrixes; // This number identicates the Number_Of_Matrixes, which allows the functions to work properly.
-    int Array_Size = Number_Of_Matrixes*2; // Array_Size is used for for the majority of functions to declare array sizes, this allows the user to only give the library 8-bit data instead of 16-bits.
+    const int Number_Of_Matrixes; // This number identicates the Number_Of_Matrixes, which allows the functions to work properly.
+    const int Array_Size = Number_Of_Matrixes*2; // Array_Size is used for for the majority of functions to declare array sizes, this allows the user to only give the library 8-bit data instead of 16-bits.
     
     
     // Registers for the MAX7221
